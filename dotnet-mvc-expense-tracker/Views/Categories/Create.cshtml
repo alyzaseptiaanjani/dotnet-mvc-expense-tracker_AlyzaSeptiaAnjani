@@ -1,0 +1,42 @@
+﻿@model Category
+@{
+    ViewData["Title"] = "Tambah Kategori";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Tambah Kategori</h3>
+    </div>
+    <form asp-action="Create">
+        <div class="card-body">
+            <div class="form-group">
+                <label>Tipe</label>
+                <select asp-for="tipe" class="form-control">
+                    <option>Income</option>
+                    <option>Expense</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Nama</label>
+                <input asp-for="nama" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Deskripsi</label>
+                <textarea asp-for="deskripsi" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Status</label>
+                <select asp-for="status" class="form-control">
+                    <option>Active</option>
+                    <option>Not Active</option>
+                </select>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-success">Simpan</button>
+            <a href="/Categories" class="btn btn-secondary">Kembali</a>
+        </div>
+    </form>
+</div>
+

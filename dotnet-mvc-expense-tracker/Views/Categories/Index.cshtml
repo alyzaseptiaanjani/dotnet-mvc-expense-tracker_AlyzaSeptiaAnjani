@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Category>
+@{
+    ViewData["Title"] = "Kategori";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Daftar Kategori</h3>
+        <a href="/Categories/Create" class="btn btn-success btn-sm float-right">Tambah Kategori</a>
+
+    </div>
+    <div class="card-body">
+        <table id="datatable" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Nama</th>
+                    <th>Tipe</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.nama</td>
+                        <td>@item.tipe</td>
+                        <td>@item.status</td>
+                        <td>
+                            <a href="/Categories/Details/@item.Id" class="btn btn-info btn-sm">Lihat</a>
+                            <a href="/Categories/Edit/@item.Id" class="btn btn-primary btn-sm">Edit</a>
+                            <a href="/Categories/Delete/@item.Id" class="btn btn-danger btn-sm">Hapus</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(function () {
+            $("#datatable").DataTable();
+        });
+    </script>
+}
